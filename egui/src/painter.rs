@@ -31,6 +31,21 @@ pub struct Painter {
     fade_to_color: Option<Color32>,
 }
 
+impl Default for Painter {
+    fn default() -> Self {
+        Self {
+            paint_list: Default::default(),
+            ctx: Default::default(),
+            layer_id: LayerId::debug(),
+            clip_rect: Rect {
+                min: Pos2::new(0.0, 0.0),
+                max: Pos2::new(0.0, 0.0),
+            },
+            fade_to_color: Default::default()
+        }
+    }
+}
+
 impl Painter {
     pub fn new(ctx: CtxRef, layer_id: LayerId, clip_rect: Rect) -> Self {
         let paint_list = ctx.graphics().list(layer_id).clone();

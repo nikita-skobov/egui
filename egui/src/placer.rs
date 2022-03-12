@@ -7,6 +7,20 @@ pub(crate) struct Placer {
     region: Region,
 }
 
+impl Default for Placer {
+    fn default() -> Self {
+        Self {
+            grid: Default::default(),
+            layout: Default::default(),
+            region: Region {
+                min_rect: Rect::NOTHING,
+                max_rect: Rect::NOTHING,
+                cursor: Rect::NOTHING,
+            },
+        }
+    }
+}
+
 impl Placer {
     pub(crate) fn new(max_rect: Rect, layout: Layout) -> Self {
         let region = layout.region_from_max_rect(max_rect);

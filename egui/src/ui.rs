@@ -62,6 +62,20 @@ pub struct Ui {
     menu_state: Option<Arc<RwLock<MenuState>>>,
 }
 
+impl Default for Ui {
+    fn default() -> Self {
+        Self {
+            id: Id::null(),
+            next_auto_id_source: Default::default(),
+            painter: Default::default(),
+            style: Default::default(),
+            placer: Default::default(),
+            enabled: Default::default(),
+            menu_state: Default::default()
+        }
+    }
+}
+
 impl Ui {
     // ------------------------------------------------------------------------
     // Creation:
